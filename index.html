@@ -4,20 +4,95 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>.::Api COVID Polombia::.</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <!-- CDN Bootstrap 5 -->
+   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+   	<!-- CDN fontawesome 5 -->
+   	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
+
   <section class="section">
+  	 <!-- Contenedor ppal de toda la aplicacion -->
     <div class="container">
       <h1 class="title">
-       <img src="img/no-pork.jpg" class="img"> ApiCovid 
+       		<img src="img/no-pork.jpg" class="img"> ApiCOVID-19
       </h1>
       <p class="subtitle">
-        Informacion actual de situacion COVID 19 para Polombia <strong>By Datorres</strong>
+       		<h3> Informacion actual desde la Organización Mundial de la Salud sobre la situacion COVID 19 para Polombia </h3>
       </p>
-      <progress class="progress is-small is-primary" max="100">15%</progress>
+     	 <div id="cargando_barra">
+			<div class="d-flex align-items-center">
+			  <strong>Consultando informacion......</strong>
+			  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+			</div>
+		</div>	
+		<br>
+		<!-- Resultado que muestra la Api si su respuesta es 200 -->
+      	<div class="accordion accordion-flush" id="accordionFlushExample">
+		 
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingOne">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+		        <h4><i class="fas fa-flushed"></i>&nbsp;&nbsp;Casos Confirmados</h4>
+		      </button>
+		    </h2>
+		    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+		      <div class="accordion-body">
+					<div class="alert alert-primary" role="alert" >
+						<h5>El total de casos son  <p id="confirmados"> -- </p></h5>
+					</div>
+		      </div>
+		    </div>
+		  </div>
 
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingTwo">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+		        <h4><i class="fas fa-skull-crossbones"></i>&nbsp;&nbsp;Casos Fallecidos </h4>
+		      </button>
+		    </h2>
+		    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+		      <div class="accordion-body">
+					<div class="alert alert-danger" role="alert">
+						<h5>El total de casos son  <p id="fallecidos"> -- </p></h5>
+					</div>
+		      </div>
+		    </div>
+		  </div>
+
+		  <div class="accordion-item">
+		    <h2 class="accordion-header" id="flush-headingThree">
+		      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+		        <h4><i class="fas fa-grin"></i>&nbsp;&nbsp;Casos Recuperados </h4>
+		      </button>
+		    </h2>
+		    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+		      <div class="accordion-body">
+					<div class="alert alert-success" role="alert">
+						<h5>El total de casos son  <p id="recuperados"> -- </p></h5>
+					</div>
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+		<!-- Si presentamos problemas con la Api o hubo algun error mostramos mensaje -->
+		<div id="error">
+			<div class="alert alert-danger" role="alert">
+				<strong><h5>Lo sentimos parece que hubo un error! con la Api <i class="fas fa-dizzy"></i></h5></strong>
+			</div>
+		</div>
+		<hr>
+		<section>
+			<i class="fas fa-chalkboard-teacher"></i> By  ©Datorres 2021.
+		</section>
     </div>
   </section>
+  	<!-- JS Aplicacion-->
+	<script type="text/javascript" src="js/api.js"></script>
+	<!-- CDN Boostrap 5 -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
   </body>
 </html>
