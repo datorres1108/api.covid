@@ -6,7 +6,7 @@ const result_fallecidos = document.getElementById("fallecidos"); //Muestra en ht
 const result_recuperados = document.getElementById("recuperados"); //Muestra en html los valores de los recuperados
 const result_error = document.getElementById("error"); //Muestra en html los valores de los recuperados
 //Funcion que consulta la API 
- function DataCovid()
+ function dataCovid()
  {
  	return fetch("https://covid19.mathdro.id/api/countries/colombia")
  	.then((response) => {
@@ -14,6 +14,7 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  	 	if(response.ok){
  	 		return response.json();	
  	 		console.log(response);
+			
 	}else{
  		throw new Error("No se logro una conexion, No tenemos informacion para mostrar");
  	 	}
@@ -21,7 +22,7 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  	.catch((error)=> error.message);
  }
 
- async function InformacionCivid(){
+ async function informacionCovid(){
  	//Muestro la barra de cargando
  	cargando_barra.style.display = "block";
  	//capturo la informacion del servidor 
@@ -30,7 +31,8 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  		//Renderizo el Html con la info para mostrar y la que debo de ocultar:
  		cargando_barra.style.display = "none"; //Ocultamos la barra de cargando 
  		acordeon_data.style.display = "block"; //Muestro el acordeo de los resultados
-		const Data = await DataCovid(); //Optengo toda la data de la Api e covid 19	
+		const Data = await dataCovid(); //Optengo toda la data de la Api e covid 19	
+
  		const CasosConfirmado = Data.confirmed.value;
  		const CasosFallecidos = Data.deaths.value;
  		const CasosRecuperados = Data.recovered.value;
@@ -51,6 +53,9 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  	}
  }
 
-//Llama la funcion !
-InformacionCivid();
+//Llama la funcion cada 10 seg
+
+//const interval = setInterval(informacionCovid(), 10000);
+informacionCovid();
+
 
