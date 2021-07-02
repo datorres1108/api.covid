@@ -21,7 +21,6 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  	 })
  	.catch((error)=> error.message);
  }
-
  async function informacionCovid(){
  	//Muestro la barra de cargando
  	cargando_barra.style.display = "block";
