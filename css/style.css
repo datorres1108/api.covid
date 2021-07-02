@@ -9,5 +9,10 @@
  	 width: 100px;
      height: 100px;
  }
-
-
+/* Mantego oculta la barra de cargando y el resultado de la API */
+#accordionFlushExample,
+#cargando_barra,
+#error
+{
+ 	display: none;
+ }
