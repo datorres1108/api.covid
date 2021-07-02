@@ -21,7 +21,8 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  	 })
  	.catch((error)=> error.message);
  }
- async function informacionCovid(){
+
+function informacionCovid(){
  	//Muestro la barra de cargando
  	cargando_barra.style.display = "block";
  	//capturo la informacion del servidor 
@@ -53,7 +54,6 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  }
 
 //Llama la funcion cada 10 seg
-
 //const interval = setInterval(informacionCovid(), 10000);
 informacionCovid();
 
