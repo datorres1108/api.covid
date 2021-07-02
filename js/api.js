@@ -22,7 +22,7 @@ const result_error = document.getElementById("error"); //Muestra en html los val
  	.catch((error)=> error.message);
  }
 
-function informacionCovid(){
+ async function informacionCovid(){
  	//Muestro la barra de cargando
  	cargando_barra.style.display = "block";
  	//capturo la informacion del servidor 
@@ -32,7 +32,7 @@ function informacionCovid(){
  		cargando_barra.style.display = "none"; //Ocultamos la barra de cargando 
  		acordeon_data.style.display = "block"; //Muestro el acordeo de los resultados
 		const Data = await dataCovid(); //Optengo toda la data de la Api e covid 19	
-
+		console.log(Data);
  		const CasosConfirmado = Data.confirmed.value;
  		const CasosFallecidos = Data.deaths.value;
  		const CasosRecuperados = Data.recovered.value;
